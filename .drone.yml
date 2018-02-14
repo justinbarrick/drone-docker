@@ -12,7 +12,7 @@ pipeline:
 
   publish:
     image: plugins/docker
-    repo: plugins/docker
+    repo: justinbarrick/docker
     tags: [ "latest", "17", "17.12" ]
     secrets: [ docker_username, docker_password ]
     dockerfile: docker/Dockerfile
@@ -20,32 +20,22 @@ pipeline:
       branch: master
       event: push
 
-  publish_heroku:
+  publish:
     image: plugins/docker
-    repo: plugins/heroku
+    repo: justinbarrick/docker
     tags: [ "latest", "17", "17.12" ]
     secrets: [ docker_username, docker_password ]
-    dockerfile: docker/heroku/Dockerfile
+    dockerfile: docker/Dockerfile.arm
     when:
       branch: master
       event: push
 
-  publish_gcr:
+  publish:
     image: plugins/docker
-    repo: plugins/gcr
-    tags: [ "latest", "17", "17.10" ]
+    repo: justinbarrick/docker
+    tags: [ "latest", "17", "17.12" ]
     secrets: [ docker_username, docker_password ]
-    dockerfile: docker/gcr/Dockerfile
-    when:
-      branch: master
-      event: push
-
-  publish_ecr:
-    image: plugins/docker
-    repo: plugins/ecr
-    tags: [ "latest", "17", "17.10" ]
-    secrets: [ docker_username, docker_password ]
-    dockerfile: docker/ecr/Dockerfile
+    dockerfile: docker/Dockerfile.arm64
     when:
       branch: master
       event: push
