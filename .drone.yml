@@ -13,7 +13,7 @@ pipeline:
   publish:
     image: plugins/docker
     repo: justinbarrick/docker
-    tags: [ "latest", "17", "17.12" ]
+    tags: [ "latest-amd64", "17-amd64", "17.12-amd64" ]
     secrets: [ docker_username, docker_password ]
     dockerfile: docker/Dockerfile
     when:
@@ -23,7 +23,7 @@ pipeline:
   publish:
     image: plugins/docker
     repo: justinbarrick/docker
-    tags: [ "latest", "17", "17.12" ]
+    tags: [ "latest-arm", "17-arm", "17.12-arm" ]
     secrets: [ docker_username, docker_password ]
     dockerfile: docker/Dockerfile.arm
     when:
@@ -33,7 +33,7 @@ pipeline:
   publish:
     image: plugins/docker
     repo: justinbarrick/docker
-    tags: [ "latest", "17", "17.12" ]
+    tags: [ "latest-arm64", "17-arm64", "17.12-arm64" ]
     secrets: [ docker_username, docker_password ]
     dockerfile: docker/Dockerfile.arm64
     when:
